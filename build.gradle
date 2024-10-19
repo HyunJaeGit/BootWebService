@@ -4,21 +4,16 @@ buildscript {
     }
     repositories {
         mavenCentral()
-        jcenter()
     }
     dependencies {
         classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
     }
-
-    apply plugin : 'java'
-    apply plugin : 'eclipse'
-    apply plugin : 'org.springframework.boot'
-    apply plugin : 'io.spring.dependency.management'
 }
 
-plugins {
-    id 'java'
-}
+apply plugin: 'java'
+apply plugin: 'eclipse'
+apply plugin: 'org.springframework.boot'
+apply plugin: 'io.spring.dependency-management'
 
 group = 'org.example'
 version = '1.0-SNAPSHOT'
@@ -28,10 +23,7 @@ repositories {
 }
 
 dependencies {
-    testImplementation platform('org.junit:junit-bom:5.10.0')
-    testImplementation 'org.junit.jupiter:junit-jupiter'
+    compile('org.springframework.boot:spring-boot-starter-web')
+    testCompileClasspath('org.springframework.boot:spring-boot-starter-test')
 }
 
-test {
-    useJUnitPlatform()
-}
